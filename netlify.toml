@@ -1,3 +1,13 @@
+# デフォルト（production / main）はビルド無しでルートを公開
 [build]
+  publish = "."
+
+# PR の Deploy Preview だけスクリプトでクリーン化して out を公開
+[context.deploy-preview]
+  command = "bash netlify-build.sh"
+  publish = "out"
+
+# （任意）ブランチデプロイでも同様に
+[context.branch-deploy]
   command = "bash netlify-build.sh"
   publish = "out"
